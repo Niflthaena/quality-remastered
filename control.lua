@@ -83,7 +83,7 @@ script.on_event(defines.events.on_script_trigger_effect, function (event)
 
     -- TODO: find a more general case that catches undergrounds and splitters rather than hardcoding names
     -- TODO: add and test loaders
-    if (entity.type == "transport-belt") or (entity.type == "underground-belt") or (entity.type == "splitter") then
+    if (entity.type == "transport-belt") or (entity.type == "underground-belt") or (entity.type == "splitter") or (entity.type == "loader") then
       -- I hate hardcoding the line count, but get_transport_line throws a hard error on higher indices
       -- TODO: find a more general case for how many transport lines an entity has
       local line_count = 2

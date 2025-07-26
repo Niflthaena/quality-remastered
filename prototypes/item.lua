@@ -12,8 +12,7 @@ function addQualityItemPlaceholder(itemName, placeholderName)
       factoriopedia_alternative = itemName,
       -- hidden_from_player_crafting = true, -- not hidden during debug
       icon = srcItem.icon,
-      subgroup = srcItem.subgroup,
-      order = srcItem.subgroup,
+      subgroup = "qr-placeholders",
       stack_size = srcItem.stack_size,
       spoil_ticks = 1,
       spoil_result = placeholderName,
