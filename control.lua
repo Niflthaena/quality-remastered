@@ -16,7 +16,7 @@ end
 
 local placeholders_to_items = {}
 for index, entry in pairs(item_placeholders) do
-  placeholders_to_items[entry[2]] = entry[1]
+  placeholders_to_items[entry[2]["name"]] = entry[1]
 end
 
 local get_replacement = function(item_stack)
