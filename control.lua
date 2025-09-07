@@ -1,4 +1,4 @@
-local item_placeholders = require("__quality-remastered__.data.item_placeholders")
+local item_placeholders_raw = require("__quality-remastered__.data.item_placeholders")
 
 local print_debug = function(message)
   if (false) then
@@ -13,9 +13,13 @@ local print_error = function(message)
 end
 
 
+local items_to_placeholder_defs = {}
+for index, entry in pairs(item_placeholders_raw) do
+  items_to_placeholder_defs[entry[1]] = entry[2]
+end
 
 local placeholders_to_items = {}
-for index, entry in pairs(item_placeholders) do
+for index, entry in pairs(item_placeholders_raw) do
   placeholders_to_items[entry[2]["name"]] = entry[1]
 end
 
@@ -31,8 +35,16 @@ local get_replacement = function(item_stack)
   if (quality.next ~= nil) then
     quality = quality.next
   end
-  return {name=replacement_name, count=item_stack.count, quality=quality}
+  
+  local item_stack_identification = {name=replacement_name, count=item_stack.count, quality=quality}
+
+  local placeholder_definition = items_to_placeholder_defs[replacement_name]
+  if placeholder_definition ~= nil and placeholder_definition["callback"] ~= nil then
+    return placeholder_definition.callback(item_stack_identification)
+  end
+  return item_stack_identification
 end
+
 
 local replace_prod_stats = function(entity, source_stack, replacement_definition)
   if (entity.force and entity.force.valid) then

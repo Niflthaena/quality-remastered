@@ -22,13 +22,13 @@ data:extend({
     type = "item-subgroup",
     name = "qr-fulgora",
     group = "quality-remastered",
-    order = "b"
+    order = "c"
   },
   {
     type = "item-subgroup",
     name = "qr-vulcanus",
     group = "quality-remastered",
-    order = "c"
+    order = "b"
   },
   {
     type = "item-subgroup",
@@ -41,5 +41,11 @@ data:extend({
     name = "qr-aquilo",
     group = "quality-remastered",
     order = "e"
+  },
+  {
+    type = "item-subgroup",
+    name = "qr-endgame",
+    group = "quality-remastered",
+    order = "y"
   },
 })
