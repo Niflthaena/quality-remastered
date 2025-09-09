@@ -31,7 +31,8 @@ function addQualityItemPlaceholder(itemName, placeholderData)
   resultItem = {
     type = "item",
     factoriopedia_alternative = itemName,
-    hidden_from_player_crafting = true,
+    hidden = true,
+    hidden_in_factoriopedia = true,
     icon = "__quality-remastered__/graphics/icons/quality-plus.png",
     subgroup = "qr-placeholders",
     stack_size = srcItem.stack_size,
